@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.btnsUserCard {
+  float: right;
+  margin-top: 20px;
+  margin-right: 50px;
+}

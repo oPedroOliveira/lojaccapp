@@ -1,5 +1,5 @@
 import React from "react";
-import './ClienteModify.css'
+import './Cliente.css'
 import history from '../../history';
 import api from '../apis';
 import Footer from "../Footer";

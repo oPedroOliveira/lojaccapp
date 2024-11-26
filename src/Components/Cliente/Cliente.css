@@ -7,3 +7,14 @@
     float: right;
     margin-top: 50px;
 }
+
+#pedido{
+    width:  '1000px';
+    margin: 5em;
+}
+
+#valorTotal{
+    text-align: right;
+    font-weight: bold;
+    margin-top: auto;
+}

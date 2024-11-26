@@ -4,16 +4,26 @@ import brigadeiro from "../cup_brigadeiro.png"
 import verde from "../cupcake_verde.jpg"
 import Footer from "./Footer";
 
+
+
+/*$(document).ready(function abreModal() {
+    $('.ui.modal')
+    .modal('show');
+});*/
+  
+
 const Home = () => {
     /*api.get("/api/cliente")
             .then(result => {
-                console.log(result)
+                console.log(result.data)
                 }
             );*/
+    
     return(
         <div>
             <div className="btnsUserCard">
                 <i style={{margin: '0 15px'}} className="shopping cart icon"></i>
+                <a href={"carrinho"}>Carrinho</a>
                 <i style={{margin: '0 15px'}} className="user plus icon"></i>
                 <a href={"cliente/novo"}>Cadastre-se</a>
             </div>
@@ -30,6 +40,7 @@ const Home = () => {
             </div>
             <Footer />
         </div>
+        
     )
 }
 

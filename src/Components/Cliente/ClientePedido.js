@@ -7,16 +7,17 @@ class ClientePedido extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { objeto: { itensPedido : [ { itemId: '', nome: ''}] }, itens: [{itemId: '', nome: ''}] }
+        this.state = { objeto: { itensPedido : [ { itemId: '', nome: ''}] }, itens: [{itemId: '', nome: ''}], carregado : false }
 
     }
 
     componentDidMount() {
         api.get(`/api/pedido/${this.props.match.params.id}`)
                 .then(result => {
-                    this.setState({ objeto: result.data});
+                    this.setState({ objeto: result.data, carregado : true});
                 })
                 .catch( e => {
+                    this.setState({ carregado : false});
                     console.log("Erro sendo tratado: ", e.message);
                 })
     }
@@ -55,14 +56,14 @@ class ClientePedido extends React.Component {
         return (
             itensPedido.map( (element, index) => {
                 return (
-                        <tr>
-                            <td>{this.retornaItem(element.itemId, 'nome')}</td>
-                            <td>{element.quantidade}</td>
-                            <td>{element.valor}</td>
-                        </tr>
+                    <tr>
+                        <td>{this.retornaItem(element.itemId, 'nome')}</td>
+                        <td>{element.quantidade}</td>
+                        <td>{element.valor}</td>
+                    </tr>
                         
-                    );
-                })
+                );
+            })
     
         )
     }
@@ -71,36 +72,50 @@ class ClientePedido extends React.Component {
 
     render(){
         const pedido = this.state.objeto
-        return(
+
+        if(this.state.carregado){
+            return(
+                    <div>
+                        <div id="pedido" >
+                            <h1 style={{margin: '20px'}} className="ui header">Pedido</h1>
+                            <h3 style={{textAlign: 'right'}} className="ui header">Situação: {pedido.status}</h3>
+                            <table className="ui compact table">
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Quantidade</th>
+                                        <th>Valor</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {this.renderItemPedido()}
+                                </tbody>
+                            </table>
+                            <div id="valorTotal">
+                                <h3>
+                                    Total: {pedido.valorTotal}
+                                </h3>
+                                
+                            </div>
+                            <button onClick={() => {history.push("/")}} className="tiny ui grey button">Voltar</button>
+                        </div>
+                        < Footer />
+                    </div>
+                )
+
+        } else {
+            return(
                 <div>
                     <div id="pedido" >
-                        <h1 style={{margin: '20px'}} className="ui header">Pedido</h1>
-                        <h3 style={{textAlign: 'right'}} className="ui header">Situação: {pedido.status}</h3>
-                        <table className="ui compact table">
-                            <thead>
-                                <tr>
-                                    <th>Item</th>
-                                    <th>Quantidade</th>
-                                    <th>Valor</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {this.renderItemPedido()}
-                            </tbody>
-                        </table>
-                        <div id="valorTotal">
-                            <h3>
-                                Total: {pedido.valorTotal}
-                            </h3>
-                            
-                        </div>
-                        <button onClick={() => {history.push("/")}} className="tiny ui grey button">Voltar</button>
+                        <h1 style={{margin: '20px'}} className="ui header">Ops... Nenhum pedido encontrado</h1>
                     </div>
                     < Footer />
                 </div>
+
             )
         }
+    }
         
 }
 

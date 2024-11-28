@@ -31,10 +31,10 @@ const Home = () => {
                 <h1>LOJA CUP CAKES</h1>
             </div>
             <div>
-                <a href={"https://google.com"} className="ui medium image">
+                <a href={"http://localhost:3000/item/i1"} className="ui medium image">
                     <img src={brigadeiro} alt="Cup Cake Brigadeiro" />
                 </a>
-                <a href={"https://google.com"} className="ui medium image">
+                <a href={"http://localhost:3000/item/i4"} className="ui medium image">
                     <img src={verde} alt="Cup Cake Verde" />
                 </a>
             </div>

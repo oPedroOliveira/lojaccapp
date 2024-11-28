@@ -8,6 +8,7 @@ import { Router, Route } from 'react-router-dom';
 import history from './history';
 import Carrinho from './Components/Carrinho/Carrinho';
 import ClientePedido from './Components/Cliente/ClientePedido';
+import Item from './Components/Item/Item';
 
 /*
 ReactDOM.render(
@@ -29,6 +30,7 @@ ReactDOM.render(
         <Route path="/cliente/alterar/:id" exact={true}  component={ClienteModify} />
         <Route path="/carrinho" exact={true}  component={Carrinho} />
         <Route path="/cliente/pedido/:id" exact={true}  component={ClientePedido} />
+        <Route path="/item/:id" exact={true} component={Item} />
       </Router>, document.querySelector("#root")
 );
 

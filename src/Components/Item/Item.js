@@ -2,7 +2,11 @@ import React from 'react'
 import Footer from "../Footer";
 import api from '../apis';
 import './Item.css'
-import brigadeiro from "../../cup_brigadeiro.png"
+import brigadeiro from "../../cupcake_brigadeiro.jpg"
+import neutro from "../../cupcake_neutro.jpg"
+import amargo from "../../cup_amargo.png"
+import verde from "../../cupcake_verde.jpg"
+import no_img from "../../no_img.png"
 import Header from "../Header";
 
 class Item extends React.Component{
@@ -31,6 +35,26 @@ class Item extends React.Component{
             
         }
     }
+    
+    renderImg = () => {
+        const obj = this.state.objeto
+        
+        const div_img = document.querySelector("#imagem")
+        
+        if (div_img !== null){
+            let img = document.createElement("img");
+            
+            if(obj.itemId === 'i1') {img.src=brigadeiro;}
+            else if(obj.itemId === 'i2') {img.src=neutro;}
+            else if(obj.itemId === 'i3') {img.src=amargo;}
+            else if(obj.itemId === 'i4') {img.src=verde;}
+            else {img.src=no_img;}
+            
+            img.className="ui medium image"
+            div_img.appendChild(img);        
+
+        }
+    }
 
     render(){
         
@@ -40,7 +64,8 @@ class Item extends React.Component{
                 <div id='item'>
                     <div className="ui grid">
                         <div id="imagem" style={{placeItems:"center"}} className="eight wide column ">
-                            <img className="ui medium image" src={brigadeiro} alt='imagem'/>
+                            {this.renderImg()}
+                            
                         </div>
                         <div className="six wide column">
                             <div className="field" style={{ marginTop: '50px'}}>
@@ -58,8 +83,8 @@ class Item extends React.Component{
                                 </select>
                             </div>
                             
-                                <button class="ui teal button" style={{ marginTop: '30px'}}>Adicionar ao Carrinho</button>
-                                <button class="ui blue button" tabindex="2">Comprar Agora</button>
+                                <button className="ui teal button" style={{ marginTop: '30px'}}>Adicionar ao Carrinho</button>
+                                <button className="ui blue button" tabIndex="2">Comprar Agora</button>
                             
                         </div>
                     </div>

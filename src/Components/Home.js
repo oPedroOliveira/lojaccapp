@@ -1,6 +1,8 @@
 import React from "react";
 //import api from './apis';
-import brigadeiro from "../cup_brigadeiro.png"
+import brigadeiro from "../cupcake_brigadeiro.jpg"
+import neutro from "../cupcake_neutro.jpg"
+import amargo from "../cup_amargo.png"
 import verde from "../cupcake_verde.jpg"
 import Footer from "./Footer";
 import "../App.css"
@@ -18,8 +20,14 @@ const Home = () => {
         <div>
             <Header />
             <div>
-                <a href={"http://localhost:3000/item/i1"} className="ui medium image">
+            <a href={"http://localhost:3000/item/i1"} className="ui medium image">
                     <img src={brigadeiro} alt="Cup Cake Brigadeiro" />
+                </a>
+                <a href={"http://localhost:3000/item/i2"} className="ui medium image">
+                    <img src={neutro} alt="Cup Cake Neutro" />
+                </a>
+                <a href={"http://localhost:3000/item/i3"} className="ui medium image">
+                    <img src={amargo} alt="Cup Cake Chocolate Amargo" />
                 </a>
                 <a href={"http://localhost:3000/item/i4"} className="ui medium image">
                     <img src={verde} alt="Cup Cake Verde" />

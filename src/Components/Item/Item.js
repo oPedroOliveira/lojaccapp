@@ -70,7 +70,8 @@ class Item extends React.Component{
                         <div className="six wide column">
                             <div className="field" style={{ marginTop: '50px'}}>
                                 <h3>{this.state.objeto.nome}</h3>
-                                <p>Cup Cake delicioso feito com carinho pra você!</p>
+                                <p>{this.state.objeto.descricao}</p>
+                                <p>Peso: {this.state.objeto.peso}</p>
                             </div>
                             <div className="field" style={{ marginTop: '30px'}}>
                                 <label>Preço: </label>

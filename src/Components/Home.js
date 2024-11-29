@@ -3,14 +3,9 @@ import React from "react";
 import brigadeiro from "../cup_brigadeiro.png"
 import verde from "../cupcake_verde.jpg"
 import Footer from "./Footer";
+import "../App.css"
+import Header from "./Header";
 
-
-
-/*$(document).ready(function abreModal() {
-    $('.ui.modal')
-    .modal('show');
-});*/
-  
 
 const Home = () => {
     /*api.get("/api/cliente")
@@ -21,15 +16,7 @@ const Home = () => {
     
     return(
         <div>
-            <div className="btnsUserCard">
-                <i style={{margin: '0 15px'}} className="shopping cart icon"></i>
-                <a href={"carrinho"}>Carrinho</a>
-                <i style={{margin: '0 15px'}} className="user plus icon"></i>
-                <a href={"cliente/novo"}>Cadastre-se</a>
-            </div>
-            <div style={{margin: '20px'}} className="ui container">
-                <h1>LOJA CUP CAKES</h1>
-            </div>
+            <Header />
             <div>
                 <a href={"http://localhost:3000/item/i1"} className="ui medium image">
                     <img src={brigadeiro} alt="Cup Cake Brigadeiro" />

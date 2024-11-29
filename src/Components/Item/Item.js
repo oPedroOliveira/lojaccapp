@@ -1,9 +1,9 @@
 import React from 'react'
 import Footer from "../Footer";
 import api from '../apis';
-import history from '../../history';
 import './Item.css'
 import brigadeiro from "../../cup_brigadeiro.png"
+import Header from "../Header";
 
 class Item extends React.Component{
     constructor(props) {
@@ -36,21 +36,11 @@ class Item extends React.Component{
         
         return(
             <div>
-                <div className="btnsUserCard">
-                    <i style={{margin: '0 15px'}} className="shopping cart icon" />
-                    <a href={"carrinho"}>Carrinho</a>
-                    <i style={{margin: '0 15px'}} className="user plus icon" />
-                    <a href={"cliente/novo"}>Cadastre-se</a>
-                    <i style={{margin: '0 15px'}} className="user icon" />
-                    <a href={"login"}>Faça Login</a>
-                </div>
-                <div style={{margin: '20px'}} className="ui container">
-                    <h1>LOJA CUP CAKES</h1>
-                </div>
+                < Header />
                 <div id='item'>
                     <div className="ui grid">
                         <div id="imagem" style={{placeItems:"center"}} className="eight wide column ">
-                            <img className="ui medium image" src={brigadeiro}/>
+                            <img className="ui medium image" src={brigadeiro} alt='imagem'/>
                         </div>
                         <div className="six wide column">
                             <div className="field" style={{ marginTop: '50px'}}>

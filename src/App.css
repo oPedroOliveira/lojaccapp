@@ -46,3 +46,17 @@ footer {
   padding: 8px;
   text-align: center;
 }
+
+
+#icone {
+  max-width:50px;
+  max-height:50px;
+  width: auto;
+  height: auto;
+  margin-left: 15px;
+}
+
+#titulo {
+  margin: 5px 25px ;
+  text-align: left;
+}

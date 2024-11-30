@@ -9,6 +9,7 @@ import history from './history';
 import Carrinho from './Components/Carrinho/Carrinho';
 import ClientePedido from './Components/Cliente/ClientePedido';
 import Item from './Components/Item/Item';
+import Login from './Components/Login';
 
 /*
 ReactDOM.render(
@@ -31,6 +32,7 @@ ReactDOM.render(
         <Route path="/carrinho" exact={true}  component={Carrinho} />
         <Route path="/cliente/pedido/:id" exact={true}  component={ClientePedido} />
         <Route path="/item/:id" exact={true} component={Item} />
+        <Route path="/login" exact={true} component={Login} />
       </Router>, document.querySelector("#root")
 );
 

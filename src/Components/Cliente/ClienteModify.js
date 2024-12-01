@@ -7,7 +7,7 @@ import Footer from "../Footer";
 const ConfirmaTermos = () => {
     
     return (
-        <div className="field">
+        <div className="required field">
             <div className="ui checkbox">
                 <input type="checkbox"></input>
                 <label>I agree to the Terms and Conditions</label>
@@ -32,27 +32,44 @@ class ClienteModify extends React.Component {
         this.setState({ objeto: obj });
     };
 
+    exibeErro = (campo) => {
+        const form = document.querySelector("#formulario")
+        let erro = document.querySelector("#erro")
+        
+        if (form !== null){
+            if (erro === null){
+                form.innerHTML += `<div id="erro" class="ui error message"><p>O campo ${campo} é obrigatório!</p></div>`
+            } else {
+                erro = document.querySelector("#erro")
+                console.log(erro)
+                erro.innerHTML = `<p>O campo ${campo} é obrigatório!</p>`
+                
+            }
+        }
+    }
+
     
     incluir = (e) => {
         e.preventDefault();
         let obj = this.state.objeto;
-        /*
         
-        obj.nome = this.state.inserirNome
-        obj.cpf = this.state.inserirCpf
-        obj.email = this.state.inserirEmail
-        */
-        console.log(obj)
-        
-        //http://localhost:5167/api/Cliente
-        api.post("api/cliente", obj)
-            .then(result => {
-                if(result.status === 201) {
-                    history.push('/');
-                } else{
-                    console.log(result)
-                }
-            });
+        if(obj.nome === ''){
+            this.exibeErro("Nome")
+        } else if (obj.cpf === '') {
+            this.exibeErro("CPF")
+        } else if (obj.email === '') {
+            this.exibeErro("Email")
+        } else {
+            //http://localhost:5167/api/Cliente
+            api.post("api/cliente", obj)
+                .then(result => {
+                    if(result.status === 201) {
+                        history.push('/');
+                    } else{
+                        console.log(result)
+                    }
+                });
+        }
     }  
 
     render(){
@@ -66,20 +83,20 @@ class ClienteModify extends React.Component {
 
         return (
             <div>
-                <div className="clienteForm">
+                <div id="formulario" className="clienteForm">
                     <div>
                         <h1 className="ui header">Cadastro Cliente</h1>
                         <form className="ui form">
-                            <div className="field">
+                            <div className="required field">
                                 <label>Nome</label>
                                 <input type="text" onChange={(e) => this.changeProp("nome", e.target.value)} value={obj.nome} placeholder="Nome"/>
                             </div>
                             <div className="two fields">
-                                <div className="field">
+                                <div className="required field">
                                     <label>CPF</label>
                                     <input type="text" onChange={(e) => this.changeProp("cpf", e.target.value)} value={obj.cpf} placeholder="CPF"/>
                                 </div>
-                                <div className="field">
+                                <div className="required field">
                                     <label>E-mail</label>
                                     <input type="text" onChange={(e) => this.changeProp("email", e.target.value)} value={obj.email} placeholder="Email"/>
                                 </div>
@@ -103,6 +120,7 @@ class ClienteModify extends React.Component {
                                 <input type="text" onChange={(e) => this.changeProp("logradouro", e.target.value)} value={obj.logradouro} placeholder="Logradouro"></input>
                             </div>
                             <ConfirmaTermos/>
+                            <p>Sua senha inicial são os oito primeiros digitos do seu CPF (sem ponto e sem traço)</p>
                         </form>
                     </div>
                     <div className="btnsCadastro">

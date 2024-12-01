@@ -8,7 +8,7 @@ function sair(){
 }
 const Menu = () => {
     let userAutenticated = localStorage.getItem('userAutenticated')
-    console.log(userAutenticated)
+    //console.log(userAutenticated)
     if (userAutenticated === null || userAutenticated === "false"){
         return (
             <div className="btnsUserCard">

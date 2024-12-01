@@ -8,6 +8,7 @@ import amargo from "../../cup_amargo.png"
 import verde from "../../cupcake_verde.jpg"
 import no_img from "../../no_img.png"
 import Header from "../Header";
+import history from '../../history';
 
 class Item extends React.Component{
     constructor(props) {
@@ -56,6 +57,16 @@ class Item extends React.Component{
         }
     }
 
+    comprar = (e) => {
+        e.preventDefault();
+        let userAutenticated = localStorage.getItem('userAutenticated')
+        if (userAutenticated === null || userAutenticated === "false"){
+            history.push('/login')
+        } else {
+            history.push('/cliente/Compra')
+        }
+    }
+
     render(){
         
         return(
@@ -85,7 +96,7 @@ class Item extends React.Component{
                             </div>
                             
                                 <button className="ui teal button" style={{ marginTop: '30px'}}>Adicionar ao Carrinho</button>
-                                <button className="ui blue button" tabIndex="2">Comprar Agora</button>
+                                <button onClick={this.comprar} className="ui blue button" tabIndex="2">Comprar Agora</button>
                             
                         </div>
                     </div>

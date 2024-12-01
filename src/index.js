@@ -11,6 +11,7 @@ import ClientePedido from './Components/Cliente/ClientePedido';
 import Item from './Components/Item/Item';
 import Login from './Components/Login';
 import Pedido from './Components/Cliente/Pedido';
+import Compra from './Components/Compra';
 
 /*
 ReactDOM.render(
@@ -35,6 +36,7 @@ ReactDOM.render(
         <Route path="/cliente/pedido/:id" exact={true}  component={ClientePedido} />
         <Route path="/item/:id" exact={true} component={Item} />
         <Route path="/login" exact={true} component={Login} />
+        <Route path="/cliente/Compra" exact={true} component={Compra} />
       </Router>, document.querySelector("#root")
 );
 

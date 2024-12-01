@@ -3,6 +3,7 @@ import './Cliente.css'
 import history from '../../history';
 import api from '../apis';
 import Footer from "../Footer";
+import logo from "../../berry_16134110.png"
 
 const ConfirmaTermos = () => {
     
@@ -83,9 +84,20 @@ class ClienteModify extends React.Component {
 
         return (
             <div>
+                <div>
+                    <div style={{margin: '20px'}} className="ui grid">
+                        <div className="one wide column ">
+                            <a href="http://localhost:3000">
+                                <img id="icone"  src={logo}  alt="icone"/> 
+                            </a>
+                        </div>
+                        <div id="titulo" className="six wide column ">
+                            <h1>LOJA CUP CAKES</h1>
+                        </div>
+                    </div>
+                </div>
                 <div id="formulario" className="clienteForm">
                     <div>
-                        <h1 className="ui header">Cadastro Cliente</h1>
                         <form className="ui form">
                             <div className="required field">
                                 <label>Nome</label>

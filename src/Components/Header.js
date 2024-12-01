@@ -26,7 +26,7 @@ const Menu = () => {
             <i style={{margin: '0 15px'}} className="shopping cart icon"></i>
             <a href={"carrinho"}>Carrinho</a>
             <i style={{margin: '0 15px'}} className="box icon"></i>
-            <a href="http://localhost:3000/pedido">Pedidos</a>
+            <a href="http://localhost:3000/cliente/pedido">Pedidos</a>
             <i style={{margin: '0 15px'}} className="power off icon" />
             <a href="http://localhost:3000/" onClick={sair}>Sair</a>
             </div>

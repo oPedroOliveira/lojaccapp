@@ -13,7 +13,7 @@ class Login extends React.Component{
 
         let user = this.state.user
         
-        if(user.email !== '') {
+        /*if(user.email !== '') {
             console.log(user)
             api.post("/api/user", user) // alice92@mailinator.com - 73633358
                 .then(result => {
@@ -32,7 +32,18 @@ class Login extends React.Component{
             console.log(localStorage.getItem('userAutenticated'))
         } else {
             alert("Credenciais Inválidas")
-        }
+        }*/
+
+            if(user.email === "alice92@mailinator.com" && user.senha === "73633358"){
+                user.isAutenticated = true;
+                this.setState({ user : user });
+                localStorage.setItem('userAutenticated', JSON.stringify(this.state.user));
+                //console.log(localStorage.getItem('userAutenticated'))
+                history.push('/')
+            } else {
+                alert("Credenciais Inválidas")
+            }
+    
 
         
         

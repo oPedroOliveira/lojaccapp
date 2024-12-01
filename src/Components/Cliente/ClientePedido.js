@@ -59,7 +59,7 @@ class ClientePedido extends React.Component {
                     <tr>
                         <td>{this.retornaItem(element.itemId, 'nome')}</td>
                         <td>{element.quantidade}</td>
-                        <td>{element.valor}</td>
+                        <td>R${element.valor}0</td>
                     </tr>
                         
                 );
@@ -94,7 +94,7 @@ class ClientePedido extends React.Component {
                             </table>
                             <div id="valorTotal">
                                 <h3>
-                                    Total: {pedido.valorTotal}
+                                    Total: R$ {pedido.valorTotal}0
                                 </h3>
                                 
                             </div>

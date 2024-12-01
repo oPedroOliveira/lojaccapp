@@ -30,7 +30,7 @@ class Pedido extends React.Component{
                     <tr>
                         <td>{i+1}</td>
                         <td>{p.qtdTotal}</td>
-                        <td>{p.valorTotal}</td>
+                        <td>R${p.valorTotal}0</td>
                         <td>{p.status}</td>
                         <td><a href={`http://localhost:3000/cliente/pedido/${p.pedidoId}`}>Ver Detalhes</a></td>
                     </tr>
